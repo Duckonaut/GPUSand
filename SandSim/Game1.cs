@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace GPUSand
 {
@@ -28,6 +29,7 @@ namespace GPUSand
 			graphics.PreferredBackBufferHeight = 360;
 			graphics.PreferredBackBufferWidth = 640;
 			graphics.GraphicsProfile = GraphicsProfile.HiDef;
+
 		}
 
 		/// <summary>
@@ -105,7 +107,7 @@ namespace GPUSand
 
 			if (Input.RightMouseHold) spriteBatch.Draw(Pixel, Input.MousePos.ToVector2(), null, Color.Black, 0f, new Vector2(0.5f), 4f, SpriteEffects.None, 0);
 
-			if(drawDuck) spriteBatch.Draw(Duck, Input.MousePos.ToVector2(), null, Color.White, 0f, new Vector2(22), 1f, SpriteEffects.None, 0);
+			if(drawDuck) spriteBatch.Draw(Duck, Input.MousePos.ToVector2(), null, Color.White, 0f, Duck.Bounds.Size.ToVector2() / 2, 1f, SpriteEffects.None, 0);
 
 			spriteBatch.End();
 
