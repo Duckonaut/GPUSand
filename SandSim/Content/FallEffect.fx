@@ -48,24 +48,12 @@ float4 MainPS(VertexShaderOutput input) : COLOR
     }
 
     
-    if (colors[1][1].r != 0)
+    if (exists(colors[1][1]))
     {
-        /*if (exists(colors[0][0]) && exists(colors[1][0]) && exists(colors[1][0]) &&
-            exists(colors[0][1]) && exists(colors[2][1]) && 
-            exists(colors[0][2]) && exists(colors[1][2]) && exists(colors[1][2]))
-            return colors[1][1];*/
-
         if (exists(colors[1][2]) && exists(colors[0][2]) && exists(colors[2][2]))
             return colors[1][1];
-
-
-        /*if (colors[0][2].r == 0 && colors[1][2].r == 1)
-            return black;
-
-        if (colors[2][2].r == 0 && colors[1][2].r == 1)
-            return black;*/
     }
-    else if (!exists(colors[1][1]))
+    else
     {
         if (exists(colors[1][0].r))
             return colors[1][0];
